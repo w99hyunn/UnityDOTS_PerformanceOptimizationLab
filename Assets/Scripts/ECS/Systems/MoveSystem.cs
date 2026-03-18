@@ -14,10 +14,9 @@ partial struct MoveSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        float deltaTime = SystemAPI.Time.DeltaTime;
         foreach (var (transform, speed, dir) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<MoveSpeed>, RefRO<MoveDirection>>())
         {
-            transform.ValueRW.Position += dir.ValueRO.value * speed.ValueRO.value * deltaTime; 
+            transform.ValueRW.Position += dir.ValueRO.value * speed.ValueRO.value * SystemAPI.Time.DeltaTime; 
         }
     }
 

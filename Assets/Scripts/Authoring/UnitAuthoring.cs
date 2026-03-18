@@ -14,6 +14,7 @@ public class UnitAuthoring : MonoBehaviour
             
             AddComponent(entity, new MoveSpeed { value = authoring.speed });
             AddComponent(entity, new MoveDirection { value = authoring.direction });
+            AddComponent(entity, new PlayerTag());
 
             Debug.Log("baked entity: " + entity);
         }
